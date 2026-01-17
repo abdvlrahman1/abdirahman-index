@@ -1,26 +1,46 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* THE EDITORIAL DARK PALETTE */
+  --bg: #050505;        /* True Matte Black */
+  --text: #F0F0F0;      /* Silk White */
+  --muted: #666666;     /* Dark Grey for dates */
+  --line: #333333;      /* Sharp Separator Lines */
+  --accent: #D4AF37;    /* Subtle Gold (High End) */
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Times New Roman', serif; /* Enforcing a classic editorial serif */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography Utilities */
+.font-editorial {
+  font-family: 'Times New Roman', serif;
+  letter-spacing: -0.02em;
+}
+
+.font-meta {
+  font-family: 'Arial', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.65rem;
+}
+
+/* Custom Image Hover */
+.img-reveal {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+}
+.group:hover .img-reveal {
+  transform: scale(1.03);
+}
+
+/* Glass Dock - More Minimal */
+.glass-dock {
+  background: rgba(20, 20, 20, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--line);
 }
